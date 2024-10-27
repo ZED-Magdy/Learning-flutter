@@ -70,12 +70,19 @@ class _HomeState extends State<Home> {
                     hintText: 'Enter your task',
                   ),
                 ),
-                for (var task in tasks)
-                  TodoItem(
-                    task: task,
-                    removeTask: removeTask,
-                    markTaskAsDone: markTaskAsDone,
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: tasks.length,
+                    itemBuilder: (context, index) {
+                      var item = tasks[index];
+                      return TodoItem(
+                        task: item,
+                        removeTask: removeTask,
+                        markTaskAsDone: markTaskAsDone,
+                      );
+                    },
                   ),
+                ),
               ],
             ),
           )),
