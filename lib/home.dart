@@ -44,6 +44,24 @@ class _HomeState extends State<Home> {
         ),
         backgroundColor: Colors.brown[400],
       ),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: 0,
+        backgroundColor: Colors.brown[400],
+        indicatorColor: Colors.brown[200],
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(
+              Icons.home,
+              color: Color.fromARGB(255, 161, 88, 4),
+            ),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+      ),
       body: Container(
           color: Colors.brown[100],
           child: Padding(
