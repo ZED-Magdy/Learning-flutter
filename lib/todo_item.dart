@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TodoItem extends StatefulWidget {
+class TodoItem extends StatelessWidget {
   final String task;
   final void Function(String task) removeTask;
   final void Function(String task) markTaskAsDone;
@@ -13,18 +13,13 @@ class TodoItem extends StatefulWidget {
   });
 
   @override
-  State<TodoItem> createState() => _TodoItemState();
-}
-
-class _TodoItemState extends State<TodoItem> {
-  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Row(
         children: [
           Expanded(
-            child: Text(widget.task),
+            child: Text(task),
           ),
           Row(
             children: [
@@ -45,7 +40,7 @@ class _TodoItemState extends State<TodoItem> {
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(Colors.red),
                 ),
-                onPressed: () => widget.removeTask(widget.task),
+                onPressed: () => removeTask(task),
                 child: const Text('Delete'),
               ),
             ],
